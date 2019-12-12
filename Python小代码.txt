@@ -1,0 +1,59 @@
+index		索引
+
+numpy  pandas
+
+difference	差集
+union		并集
+intersection	交集
+
+df.head(20)	读取前十条信息
+df.loc[99]	想要指定的信息
+
+df=pd.DataFrame(data,columns=["title","price","evaluate","store"])	更改顺序
+
+del df["evaluate"]	删除
+
+df=pd.DataFrame(np.arange(9).reshape(3,3),index=list("abc"),columns=list("qwe"))
+
+df.drop("image",axis=1,inplace=True)
+
+df.loc[90:99,["score"]]
+
+s1=pd.Series(np.arange(1,4),index=["one","two","three"])
+s2=pd.Series(np.arange(4),index=["one","two","three","four"])
+df1=pd.DataFrame(np.arange(12).reshape(3,4),index=list("abc"),columns=list("qwer"))
+
+df.drop("image",axis=1).sort_values(by="score",ascending=False)
+
+判断索引是否重复
+print(s.is_unique)
+
+data=data.drop(["image","releasetime"],axis=1)
+
+把movies.json里面的评分大于9分的电影及电影名称，演员保持到名为movies.csv里
+# 读取文件
+data=pd.read_json("D:\Luckdeer\movies.json",encoding="utf8")
+# 删除多余列
+data=data.drop(["image","releasetime"],axis=1)
+# 排序
+data=data.sort_values(by='score',ascending=False)
+# 去除评分小于9
+data=data[data['score']>9]
+# 把列索引顺序改一下
+df=pd.DataFrame(data,columns=["title","actor","store"])
+print(df)
+# 保存
+df.to_csv('D:/Luckdeer/score.csv',encoding='gbk')
+
+df.dropna(axis=1,how='all')	删除缺失值列
+df.fillna(5)		填充缺失值
+df.fillna(method="ffill")	向前填充
+data = data
+data.drop_duplicates()	删除重复值
+
+data.replace("a","aaa")
+
+data={
+  "":""
+  "":""
+}
